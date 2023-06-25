@@ -8,7 +8,7 @@ const pool = new Pool({
  user: "postgres",
  host: "database-1.cckzepcp3p98.ap-southeast-2.rds.amazonaws.com",
  database: "postgres",
- password: "Covid19202122",
+ password: "xxxxxxx",
  port: 5432,
 });
  
