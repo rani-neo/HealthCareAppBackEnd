@@ -6,9 +6,9 @@ const app = express();
 const port = 3001;
 const pool = new Pool({
  user: "postgres",
- host: "127.0.0.1",
- database: "HealthDB",
- password: "Chandrashekhar",
+ host: "database-1.cckzepcp3p98.ap-southeast-2.rds.amazonaws.com",
+ database: "postgres",
+ password: "Covid19202122",
  port: 5432,
 });
  
