@@ -19,9 +19,9 @@ const app = (0, express_1.default)();
 const port = 3001;
 const pool = new pg_1.Pool({
     user: "postgres",
-    host: "127.0.0.1",
-    database: "HealthDB",
-    password: "Chandrashekhar",
+    host: "database-1.cckzepcp3p98.ap-southeast-2.rds.amazonaws.com",
+    database: "postgres",
+    password: "Covid19202122",
     port: 5432,
 });
 app.use((0, cors_1.default)());
