@@ -18,11 +18,11 @@ const pg_1 = require("pg");
 const app = (0, express_1.default)();
 const port = 3001;
 const pool = new pg_1.Pool({
-    user: "postgres",
-    host: "database-1.cckzepcp3p98.ap-southeast-2.rds.amazonaws.com",
-    database: "postgres",
-    password: "Covid19202122",
-    port: 5432,
+     user: "postgres",
+     host: "database-1.cckzepcp3p98.ap-southeast-2.rds.amazonaws.com",
+     database: "postgres",
+     password: "Covid19202122",
+     port: 5432,
 });
 app.use((0, cors_1.default)());
 app.get("/api/patients", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
