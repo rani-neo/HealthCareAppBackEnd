@@ -18,11 +18,11 @@ const pg_1 = require("pg");
 const app = (0, express_1.default)();
 const port = 3001;
 const pool = new pg_1.Pool({
-     user: "postgres",
-     host: "database-1.cckzepcp3p98.ap-southeast-2.rds.amazonaws.com",
-     database: "postgres",
-     password: "Covid19202122",
-     port: 5432,
+    user: "postgres",
+    host: "database-1.cckzepcp3p98.ap-southeast-2.rds.amazonaws.com",
+    database: "postgres",
+    password: "Covid19202122",
+    port: 5432,
 });
 app.use((0, cors_1.default)());
 app.get("/api/patients", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -35,6 +35,22 @@ app.get("/api/patients", (req, res) => __awaiter(void 0, void 0, void 0, functio
     catch (error) {
         console.error("Error fetching patients:", error);
         res.status(500).json({ error: "Internal server error" });
+    }
+}));
+app.delete("/api/patients/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = req.params.id;
+    try {
+        const query = "DELETE FROM patients WHERE id = $1";
+        const result = yield pool.query(query, [id]);
+        if (result.rowCount === 0) {
+            // No rows were affected, meaning the ID doesn't exist in the database
+            return res.status(404).json({ error: "Patient not found" });
+        }
+        return res.json({ message: "Patient deleted successfully" });
+    }
+    catch (error) {
+        console.error("Error deleting patient:", error);
+        return res.status(500).json({ error: "Internal server error" });
     }
 }));
 app.listen(port, () => {
