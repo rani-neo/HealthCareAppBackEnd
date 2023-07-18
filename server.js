@@ -16,7 +16,7 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const pg_1 = require("pg");
 const app = (0, express_1.default)();
-const port = 80;
+const port = 3001;
 const pool = new pg_1.Pool({
     user: "postgres",
     host: "database-1.cckzepcp3p98.ap-southeast-2.rds.amazonaws.com",
